@@ -311,6 +311,7 @@ svg{
 }
 
 .section-text{
+  text-align: justify;
   line-height: 2;
   margin-top: 18px;
   font-size: 16px;
