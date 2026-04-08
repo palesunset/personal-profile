@@ -447,7 +447,17 @@ svg{
   background-color: var(--color-green);
 }
 
+.purple-text{
+  color: var(--color-purple);
+}
 
+.purple-border{
+  border-color: var(--color-purple);
+}
+
+.purple-background{
+  background-color: var(--color-purple);
+}
 /* Media Queries */
 
 @media (max-width: 968px){
