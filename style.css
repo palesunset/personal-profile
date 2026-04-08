@@ -372,10 +372,10 @@ svg{
 .section-number{
   position: absolute;
   bottom: 15px;
-  margin-bottom: 0px;
   right: 0;
   color: var(--color-pink);
   font-size: 24px;
+  margin-bottom: 0px;
 }
 
 
