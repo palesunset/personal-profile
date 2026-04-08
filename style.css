@@ -309,7 +309,7 @@ svg{
   font-size: 18px;
   font-weight: 700;
   line-height: 1.8;
-  margin-top: 64px;
+  margin-top: 0px;
   color: var(--color-text);
 }
 
@@ -372,6 +372,7 @@ svg{
 .section-number{
   position: absolute;
   bottom: 15px;
+  margin-bottom: 0px;
   right: 0;
   color: var(--color-pink);
   font-size: 24px;
