@@ -37,7 +37,6 @@ export default class Controls {
     }
 
     setupASScroll() {
-        // https://github.com/ashthornton/asscroll
         const asscroll = new ASScroll({
             ease: 0.1,
             disableRaf: true,
@@ -87,15 +86,14 @@ export default class Controls {
 
     setScrollTrigger() {
         ScrollTrigger.matchMedia({
-            //Desktop
+            // Desktop
             "(min-width: 969px)": () => {
-                // console.log("fired desktop");
-
                 this.room.scale.set(0.11, 0.11, 0.11);
                 this.rectLight.width = 0.5;
                 this.rectLight.height = 0.7;
                 this.camera.orthographicCamera.position.set(0, 6.5, 10);
                 this.room.position.set(0, 0, 0);
+
                 // First section -----------------------------------------
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
@@ -103,7 +101,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
                         invalidateOnRefresh: true,
                     },
                 });
@@ -170,12 +167,24 @@ export default class Controls {
                     y: 1.5,
                     x: -4.1,
                 });
+
+                // Fourth section -----------------------------------------
+                this.fourthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                }).to(this.camera.orthographicCamera.position, {
+                    y: 6.5,
+                    x: 4.1,
+                });
             },
 
             // Mobile
             "(max-width: 968px)": () => {
-                // console.log("fired mobile");
-
                 // Resets
                 this.room.scale.set(0.07, 0.07, 0.07);
                 this.room.position.set(0, 0, 0);
@@ -190,7 +199,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // invalidateOnRefresh: true,
                     },
                 }).to(this.room.scale, {
                     x: 0.1,
@@ -245,9 +253,23 @@ export default class Controls {
                 }).to(this.room.position, {
                     z: -4.5,
                 });
+
+                // Fourth section -----------------------------------------
+                this.fourthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                }).to(this.room.position, {
+                    x: -1.5,
+                    z: -4.5,
+                });
             },
 
-            // all
+            // All
             all: () => {
                 this.sections = document.querySelectorAll(".section");
                 this.sections.forEach((section) => {
@@ -307,7 +329,6 @@ export default class Controls {
                     });
                 });
 
-                // All animations
                 // First section -----------------------------------------
                 this.firstCircle = new GSAP.timeline({
                     scrollTrigger: {
@@ -360,6 +381,20 @@ export default class Controls {
                     x: 3,
                     y: 3,
                     z: 3,
+                });
+
+                // Fourth section -----------------------------------------
+                this.fourthCircle = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                    },
+                }).to(this.circleThird.scale, {
+                    x: 5,
+                    y: 5,
+                    z: 5,
                 });
 
                 // Mini Platform Animations
@@ -461,6 +496,7 @@ export default class Controls {
             },
         });
     }
+
     resize() {}
 
     update() {}
