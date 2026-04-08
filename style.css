@@ -293,7 +293,7 @@ svg{
   position: relative;
   padding: 20% 5%;
   border-bottom: 2px solid var(--color-pink);
-  padding-bottom: 400px;
+  padding-bottom: 300px;
 }
 
 .section-intro-wrapper:nth-child(3){
